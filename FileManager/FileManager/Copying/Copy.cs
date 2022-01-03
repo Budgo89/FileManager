@@ -12,19 +12,19 @@ namespace FileManager.Copying
     public class Copy
     {
         private Form1 form; 
-        private Rename rename;
+        private RenameForms rename;
         private bool copyBool = true;
         private Helper helper;
         private string copyFile;
         private string past;
         
-        public Copy(Form1 form, Helper helper, Rename rename)
+        public Copy(Form1 form, Helper helper, RenameForms rename)
         {
             this.form = form;
             this.helper = helper;
             this.rename = rename;
         }
-        public void CopyClic()
+        public void CopyClick()
         {
             CopyStart();
         }

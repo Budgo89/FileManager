@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace FileManager.Forms
 {
-    public partial class Rename : Form
+    public partial class RenameForms : Form
     {
         private Copy copy;
-        public Rename()
+        public RenameForms()
         {
             InitializeComponent();
         }

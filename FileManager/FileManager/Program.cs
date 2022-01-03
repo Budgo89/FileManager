@@ -3,6 +3,7 @@ using FileManager.Copying;
 using FileManager.Deletes;
 using FileManager.Display;
 using FileManager.Forms;
+using FileManager.Renames;
 using FileManager.Transitions;
 using System;
 using System.Collections.Generic;
@@ -23,17 +24,20 @@ namespace FileManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var form = new Form1();
-            var renameForm = new Rename();
+            var renameForms = new RenameForms();
             var deleteForms = new DeleteForms();
+            var renameFileForms = new RenameFileForms();
 
             var helper = new Helper(form);            
             var displayAssistant = new DisplayAssistant(form);
             var folderWalking = new FolderWalking(displayAssistant);
-            var copy = new Copy(form, helper, renameForm);
+            var copy = new Copy(form, helper, renameForms);
             var delete = new Delete(form, helper, deleteForms);
-            form.Form1AddFolderWalking(folderWalking, helper, copy, delete);
-            renameForm.RenameAdd(copy);
+            var rename = new Rename(form,helper,renameFileForms);
+            form.Form1AddFolderWalking(folderWalking, helper, copy, delete, rename);
+            renameForms.RenameAdd(copy);
             deleteForms.DeleteFormsAdd(delete);
+            renameFileForms.RenameFileFormsAdd(rename);
             Application.Run(form);
         }
     }

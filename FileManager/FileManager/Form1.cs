@@ -1,6 +1,7 @@
 ﻿using FileManager.Assistant;
 using FileManager.Copying;
 using FileManager.Deletes;
+using FileManager.Renames;
 using FileManager.Transitions;
 using System;
 using System.Collections.Generic;
@@ -22,24 +23,26 @@ namespace FileManager
         private Helper helper;
         private Copy copy;
         private Delete delete;
+        private Rename rename;
         public Form1()
         {
             InitializeComponent();
         }
-        public void Form1AddFolderWalking(FolderWalking folderWalking, Helper helper, Copy copy, Delete delete)
+        public void Form1AddFolderWalking(FolderWalking folderWalking, Helper helper, Copy copy, Delete delete, Rename rename)
         {
             this.folderWalking = folderWalking;
             this.helper = helper;
             this.copy = copy;
             this.delete = delete;
+            this.rename = rename;
         }
 
         private void goOver_button_Click(object sender, EventArgs e)
         {
             mainWindow.Items.Clear();
             addres = helper.Address();
-            folderWalking.goOverDirectoryClic(addres);
-            folderWalking.goOverFileClic(addres);
+            folderWalking.goOverDirectoryClick(addres);
+            folderWalking.goOverFileClick(addres);
         }
 
         private void mainWindow_doudleClick(object sender, MouseEventArgs e)
@@ -47,18 +50,23 @@ namespace FileManager
             addres = helper.PathAddress();
             fileAddress.Text = addres;
             mainWindow.Items.Clear();
-            folderWalking.goOverDirectoryClic(addres);
-            folderWalking.goOverFileClic(addres);
+            folderWalking.goOverDirectoryClick(addres);
+            folderWalking.goOverFileClick(addres);
         }
 
         private void copy_button_Click(object sender, EventArgs e)
         {
-            copy.CopyClic();
+            copy.CopyClick();
         }
 
         private void delete_button_Click(object sender, EventArgs e)
         {
             delete.DeleteClick();
+        }
+
+        private void rename_button_Click(object sender, EventArgs e)
+        {
+            rename.RenameClick();
         }
     }
 }

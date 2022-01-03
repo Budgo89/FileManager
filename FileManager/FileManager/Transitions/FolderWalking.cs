@@ -17,11 +17,11 @@ namespace FileManager.Transitions
             this.displayAssistant = displayAssistant;
         }
 
-        public void goOverDirectoryClic(string directory)
+        public void goOverDirectoryClick(string directory)
         {
             goOverDirectory(directory);
         }
-        public void goOverFileClic(string directory)
+        public void goOverFileClick(string directory)
         {
             goOverFile(directory);
         }

@@ -109,6 +109,7 @@
             this.rename_button.TabIndex = 5;
             this.rename_button.Text = "Переименовывать";
             this.rename_button.UseVisualStyleBackColor = true;
+            this.rename_button.Click += new System.EventHandler(this.rename_button_Click);
             // 
             // copy_button
             // 

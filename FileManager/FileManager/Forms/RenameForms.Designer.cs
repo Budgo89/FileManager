@@ -1,6 +1,6 @@
 ﻿namespace FileManager.Forms
 {
-    partial class Rename
+    partial class RenameForms
     {
         /// <summary>
         /// Required designer variable.
