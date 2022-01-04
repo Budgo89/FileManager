@@ -25,13 +25,13 @@ namespace FileManager.Forms
 
         private void yes_button_Click(object sender, EventArgs e)
         {
-            Close();
+            Visible = false;
             delete.DeleteYes();
         }
 
         private void no_button_Click(object sender, EventArgs e)
         {
-            Close();
+            Visible = false;
         }
     }
 }

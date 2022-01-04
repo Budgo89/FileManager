@@ -14,6 +14,7 @@ namespace FileManager.Deletes
         private Form1 form;
         private Helper helper;
         private DeleteForms deleteForms;
+        private string file;
         public Delete(Form1 form, Helper helper, DeleteForms deleteForms)
         {
             this.form = form;
@@ -28,20 +29,22 @@ namespace FileManager.Deletes
 
         internal void DeleteYes()
         {
-            DeleteStart();
+            file = helper.PathAddress();
+            DeleteStart();            
         }
-
+        internal void DeleteYes(string file)
+        {
+            this.file = file;
+            DeleteStart();            
+        }
         private void DeleteStart()
         {
-            var file = helper.PathAddress();
-            if (helper.Name() != "" || helper.Name() != null)
+            if (File.Exists(file))
             {
-                if (File.Exists(file))
-                {
-                    File.Delete(file);
-                }
-                else Directory.Delete(file, true);
-            }            
+                File.Delete(file);
+            }
+            else Directory.Delete(file, true);
+                        
         }
     }
 }

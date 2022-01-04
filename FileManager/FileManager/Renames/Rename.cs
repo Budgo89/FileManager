@@ -49,7 +49,7 @@ namespace FileManager.Renames
                 {
                     FileSystem.RenameDirectory(helper.PathAddress(), newName);
                 }
-                renameFileForms.Close();
+                renameFileForms.Visible = false;
             }
             
         }

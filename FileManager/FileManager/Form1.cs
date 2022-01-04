@@ -2,16 +2,10 @@
 using FileManager.Copying;
 using FileManager.Deletes;
 using FileManager.Renames;
+using FileManager.Transferals;
 using FileManager.Transitions;
+using FileManager.Сreates;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FileManager
@@ -24,17 +18,21 @@ namespace FileManager
         private Copy copy;
         private Delete delete;
         private Rename rename;
+        private Transferal transferal;
+        private Create create;
         public Form1()
         {
             InitializeComponent();
         }
-        public void Form1AddFolderWalking(FolderWalking folderWalking, Helper helper, Copy copy, Delete delete, Rename rename)
+        public void Form1AddFolderWalking(FolderWalking folderWalking, Helper helper, Copy copy, Delete delete, Rename rename, Transferal transferal, Create create)
         {
             this.folderWalking = folderWalking;
             this.helper = helper;
             this.copy = copy;
             this.delete = delete;
             this.rename = rename;
+            this.transferal = transferal;
+            this.create = create;
         }
 
         private void goOver_button_Click(object sender, EventArgs e)
@@ -67,6 +65,16 @@ namespace FileManager
         private void rename_button_Click(object sender, EventArgs e)
         {
             rename.RenameClick();
+        }
+
+        private void transferal_button_Click(object sender, EventArgs e)
+        {
+            transferal.TransferalClick();
+        }
+
+        private void create_button_Click(object sender, EventArgs e)
+        {
+            create.CreateClick();
         }
     }
 }

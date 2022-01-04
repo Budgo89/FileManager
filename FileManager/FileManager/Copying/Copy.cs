@@ -30,8 +30,12 @@ namespace FileManager.Copying
         }
         public void InsertFileStartClic(string name)
         {
-            rename.Close();
+            rename.Visible = false;
             InsertFileStart(name);
+        }
+        public void CopyTransferalClick(string name, string copyFile)
+        {
+            InsertFileStart(name, copyFile);
         }
         private void CopyStart()
         {
@@ -48,7 +52,14 @@ namespace FileManager.Copying
                 rename.Show();
             }
         }
+
         private void InsertFileStart(string name)
+        {
+            past = helper.Address();
+            InsertFile(copyFile, Path.Combine(past, name));
+            form.mainWindow.Refresh();
+        }
+        private void InsertFileStart(string name, string copyFile)
         {
             past = helper.Address();
             InsertFile(copyFile, Path.Combine(past, name));
