@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.IO;
 
 namespace FileManager.Assistant
 {
@@ -22,18 +16,21 @@ namespace FileManager.Assistant
 
         public string Name()
         {
-            return form.mainWindow.SelectedItem.ToString();
+            if (form.mainWindow.SelectedItem != null)
+            {
+                return form.mainWindow.SelectedItem.ToString();
+            }
+            return null;
         }
         public string PathAddress()
         {
             string fileAddress = form.fileAddress.Text;
-            if (form.mainWindow.SelectedItem.ToString() != null)
+            if (Name() != null)
             {
                 string mainWindow = form.mainWindow.SelectedItem.ToString();
                 return Path.Combine(fileAddress, mainWindow);
             }
-            else return null;
-            
+            else return null;            
         }
     }
 }

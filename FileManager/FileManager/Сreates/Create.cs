@@ -11,9 +11,9 @@ namespace FileManager.Сreates
 {
     public class Create
     {
-        private CreateForm createForm;
+        private CreateForms createForm;
         private Helper helper;
-        public Create(CreateForm createForm, Helper helper)
+        public Create(CreateForms createForm, Helper helper)
         {
             this.createForm = createForm;
             this.helper = helper;
@@ -40,7 +40,6 @@ namespace FileManager.Сreates
                 Directory.CreateDirectory(Path.Combine(helper.Address(), name));
             }
         }
-
         private void CreateStart()
         {
             createForm.Show();

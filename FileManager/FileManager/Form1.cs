@@ -1,6 +1,8 @@
 ﻿using FileManager.Assistant;
 using FileManager.Copying;
 using FileManager.Deletes;
+using FileManager.Forms;
+using FileManager.Information;
 using FileManager.Renames;
 using FileManager.Transferals;
 using FileManager.Transitions;
@@ -20,11 +22,13 @@ namespace FileManager
         private Rename rename;
         private Transferal transferal;
         private Create create;
+        private Info info;
+        private FileSearchForms fileSearchForms;
         public Form1()
         {
             InitializeComponent();
         }
-        public void Form1AddFolderWalking(FolderWalking folderWalking, Helper helper, Copy copy, Delete delete, Rename rename, Transferal transferal, Create create)
+        public void Form1AddFolderWalking(FolderWalking folderWalking, Helper helper, Copy copy, Delete delete, Rename rename, Transferal transferal, Create create, Info info, FileSearchForms fileSearchForms)
         {
             this.folderWalking = folderWalking;
             this.helper = helper;
@@ -33,14 +37,15 @@ namespace FileManager
             this.rename = rename;
             this.transferal = transferal;
             this.create = create;
+            this.info = info;
+            this.fileSearchForms = fileSearchForms;
         }
 
         private void goOver_button_Click(object sender, EventArgs e)
         {
             mainWindow.Items.Clear();
             addres = helper.Address();
-            folderWalking.goOverDirectoryClick(addres);
-            folderWalking.goOverFileClick(addres);
+            folderWalking.GoOverStart(addres);
         }
 
         private void mainWindow_doudleClick(object sender, MouseEventArgs e)
@@ -48,8 +53,7 @@ namespace FileManager
             addres = helper.PathAddress();
             fileAddress.Text = addres;
             mainWindow.Items.Clear();
-            folderWalking.goOverDirectoryClick(addres);
-            folderWalking.goOverFileClick(addres);
+            folderWalking.GoOverStart(addres);
         }
 
         private void copy_button_Click(object sender, EventArgs e)
@@ -75,6 +79,22 @@ namespace FileManager
         private void create_button_Click(object sender, EventArgs e)
         {
             create.CreateClick();
+        }
+
+        private void info_button_Click(object sender, EventArgs e)
+        {
+            info.infoClick();
+        }
+
+        private void go_back_button_Click(object sender, EventArgs e)
+        {
+            mainWindow.Items.Clear();
+            folderWalking.GoBackClick();
+        }
+
+        private void find_button_Click(object sender, EventArgs e)
+        {
+            fileSearchForms.Show();
         }
     }
 }

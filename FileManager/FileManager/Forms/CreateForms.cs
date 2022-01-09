@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace FileManager.Forms
 {
-    public partial class CreateForm : Form
+    public partial class CreateForms : Form
     {
         private Create create;
-        public CreateForm()
+        public CreateForms()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace FileManager.Forms
 {
-    partial class CreateForm
+    partial class CreateForms
     {
         /// <summary>
         /// Required designer variable.

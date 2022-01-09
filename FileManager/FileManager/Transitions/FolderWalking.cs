@@ -1,4 +1,5 @@
-﻿using FileManager.Display;
+﻿using FileManager.Assistant;
+using FileManager.Display;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,34 +12,59 @@ namespace FileManager.Transitions
     public class FolderWalking
     {
         private DisplayAssistant displayAssistant;
+        private Helper helper;
+        private Stack<string> back;
+        private Form1 form;
 
-        public FolderWalking(DisplayAssistant displayAssistant)
+        public FolderWalking(DisplayAssistant displayAssistant, Helper helper, Form1 form)
         {
             this.displayAssistant = displayAssistant;
+            this.helper = helper;
+            this.form = form;
+            back = new Stack<string>();
         }
 
-        public void goOverDirectoryClick(string directory)
+        public void GoOverStart(string directory)
         {
-            goOverDirectory(directory);
+            if (directory != null)
+            {
+                if (Directory.Exists(directory))
+                {
+                    back.Push(directory);
+                    GoOverDirectory(directory);
+                    GoOverFile(directory);
+                }
+            }
         }
-        public void goOverFileClick(string directory)
+        private void GoOverFile(string directory)
         {
-            goOverFile(directory);
-        }
-
-        private void goOverFile(string directory)
-        {
-            DirectoryInfo directoryInfo = new DirectoryInfo(directory);
+            DirectoryInfo directoryInfo = new DirectoryInfo(directory);               
             FileInfo[] fileInfos = directoryInfo.GetFiles();
             displayAssistant.FileDisplay(fileInfos);
         }
 
-        private void goOverDirectory(string directory)
+        private void GoOverDirectory(string directory)
         {
             DirectoryInfo directoryInfo = new DirectoryInfo(directory);
             DirectoryInfo[] directoryInfos = directoryInfo.GetDirectories();
             displayAssistant.DirectoryDisplay(directoryInfos);
+            
         }
 
+        public void GoBackClick()
+        {
+            GoBackStart();
+        }
+        private void GoBackStart()
+        {
+            if (back.Count != 0)
+            {
+                var backClick = back.Pop();
+                form.fileAddress.Text = backClick;
+                GoOverDirectory(backClick);
+                GoOverFile(backClick);
+            }
+
+        }
     }
 }

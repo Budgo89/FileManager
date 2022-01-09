@@ -36,6 +36,9 @@
             this.rename_button = new System.Windows.Forms.Button();
             this.copy_button = new System.Windows.Forms.Button();
             this.transferal_button = new System.Windows.Forms.Button();
+            this.info_button = new System.Windows.Forms.Button();
+            this.go_back_button = new System.Windows.Forms.Button();
+            this.find_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainWindow
@@ -60,9 +63,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fileAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.fileAddress.Location = new System.Drawing.Point(7, 33);
+            this.fileAddress.Location = new System.Drawing.Point(23, 33);
             this.fileAddress.Name = "fileAddress";
-            this.fileAddress.Size = new System.Drawing.Size(758, 22);
+            this.fileAddress.Size = new System.Drawing.Size(697, 22);
             this.fileAddress.TabIndex = 1;
             // 
             // goOver_button
@@ -135,11 +138,50 @@
             this.transferal_button.UseVisualStyleBackColor = true;
             this.transferal_button.Click += new System.EventHandler(this.transferal_button_Click);
             // 
+            // info_button
+            // 
+            this.info_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.info_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.info_button.Location = new System.Drawing.Point(772, 505);
+            this.info_button.Name = "info_button";
+            this.info_button.Size = new System.Drawing.Size(152, 23);
+            this.info_button.TabIndex = 8;
+            this.info_button.Text = "Информация";
+            this.info_button.UseVisualStyleBackColor = true;
+            this.info_button.Click += new System.EventHandler(this.info_button_Click);
+            // 
+            // go_back_button
+            // 
+            this.go_back_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.go_back_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.go_back_button.Location = new System.Drawing.Point(727, 32);
+            this.go_back_button.Name = "go_back_button";
+            this.go_back_button.Size = new System.Drawing.Size(38, 23);
+            this.go_back_button.TabIndex = 9;
+            this.go_back_button.Text = "←";
+            this.go_back_button.UseVisualStyleBackColor = true;
+            this.go_back_button.Click += new System.EventHandler(this.go_back_button_Click);
+            // 
+            // find_button
+            // 
+            this.find_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.find_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.find_button.Location = new System.Drawing.Point(772, 470);
+            this.find_button.Name = "find_button";
+            this.find_button.Size = new System.Drawing.Size(152, 23);
+            this.find_button.TabIndex = 10;
+            this.find_button.Text = "Найти";
+            this.find_button.UseVisualStyleBackColor = true;
+            this.find_button.Click += new System.EventHandler(this.find_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 536);
+            this.Controls.Add(this.find_button);
+            this.Controls.Add(this.go_back_button);
+            this.Controls.Add(this.info_button);
             this.Controls.Add(this.transferal_button);
             this.Controls.Add(this.copy_button);
             this.Controls.Add(this.rename_button);
@@ -165,6 +207,9 @@
         public System.Windows.Forms.Button rename_button;
         public System.Windows.Forms.Button copy_button;
         public System.Windows.Forms.Button transferal_button;
+        private System.Windows.Forms.Button info_button;
+        private System.Windows.Forms.Button go_back_button;
+        private System.Windows.Forms.Button find_button;
     }
 }
 

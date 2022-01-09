@@ -22,13 +22,11 @@ namespace FileManager.Forms
         {
             this.delete = delete;
         }
-
         private void yes_button_Click(object sender, EventArgs e)
         {
             Visible = false;
             delete.DeleteYes();
         }
-
         private void no_button_Click(object sender, EventArgs e)
         {
             Visible = false;
